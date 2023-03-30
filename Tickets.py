@@ -153,7 +153,7 @@ def edit_ticket():
             ticket_list[tid].Status = "Closed"
             resolved += 1
             solve -= 1
-        elif edit_choise == "R":
+        elif edit_choice == "R":
             userResponse = input("Please Enter a Response: ")
             ticket_list[tid].Response = userResponse
         elif edit_choice == "D":
