@@ -100,6 +100,7 @@ ticket3 = Ticket(2003, "John", "JOHNS", "john@whitecliffe.co.nz", "Password Chan
 ticket_list.append(ticket3)
 
 
+#make_ticket() is a function that allows the user to make custom tickets
 def make_ticket():
     global used_ids
     global ticket_list
@@ -121,7 +122,7 @@ def make_ticket():
         pass
     main()
 
-    
+#view_tickets() allows the end-user to the data of a selected ticket 
 def view_tickets():
     global used_ids
     global ticket_list
@@ -132,7 +133,7 @@ def view_tickets():
         Ticket.ticketprint(ticket_list[tid])
     main()
 
-    
+#edit_tickets() allows an admin to modify the status or response to a ticket
 def edit_ticket():
     global used_ids
     global ticket_list
@@ -143,7 +144,6 @@ def edit_ticket():
     if sel_ticket in used_ids:
         tid = sel_ticket - 2001
         Ticket.ticketprint(ticket_list[tid])
-
         edit_choice = input("Would you like to Re(O)pen, (C)lose, (R)espond or (D)elete a ticket: ")
         if edit_choice == "O":
             ticket_list[tid].Status = "Open"
@@ -167,6 +167,8 @@ def edit_ticket():
                 print("No Changes have been made")
         Ticket.ticketprint(ticket_list[tid])
         main()
+        
+#password_check() checks if the user inputted password is equal to adminpw
 def password_check():
     global admin
     global userpassword
@@ -180,7 +182,8 @@ def password_check():
             pass
     else:
         pass
-    
+
+#main() the function at acts as the root of the program and it branches into other functions
 def main():
     global admin
     password_check()
@@ -199,5 +202,5 @@ def main():
             edit_ticket()
         else:
             main()
-
+#main() here initalises the program
 main()
