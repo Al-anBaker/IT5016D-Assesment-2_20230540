@@ -40,7 +40,7 @@ class Ticket():
         self.Creator = Creator
         self.ID = ID
         self.Email = Email
-        self.Discription = Discription
+        self.Description = Description
         self.Response = Response
         self.Status = Status
         
@@ -112,10 +112,10 @@ def make_ticket():
     userID = input("Please input your Staff ID: ")
     userEmail = input("Please input your Email: ")
     userDiscription = input("Please add a discription: ")
-    ticket4 = Ticket(userNum, userCreator, userID, userEmail, userDiscription, "Not Yet Provided", "Open")
+    ticket4 = Ticket(userNum, userCreator, userID, userEmail, userDescription, "Not Yet Provided", "Open")
     ticket_list.append(ticket4)
     Ticket.ticketprint(ticket_list[tid])
-    if "Password Change" in userDiscription:
+    if "Password Change" in userDescription:
         Ticket.change_password(ticket_list[tid])
         print("Password Changed New Password in Response")
     else:
