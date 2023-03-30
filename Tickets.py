@@ -1,28 +1,41 @@
+#By Alan Baker 2023 Mar 30
+
 
 #this sets if the user is an admin
 admin = False
 
-#userpassword is the password used here
+#userpassword is password the end-user inputted
 userpassword = ""
 
-
+#this is a list of used_ids
 used_ids = []
 
+#this is a list of tickets
 ticket_list = []
+
 #this is the default admin password
 adminpw = "admin"
+
+#0 is the default value of solve
 solve = 0
+
+#0 is the default value of resolved
 resolved = 0
+
+#0 is the default value of tickets_created
 tickets_created = 0
+
 #the Ticket() class contains the attributes and methods of the Ticket() object
 class Ticket():
     
-    #This is the defult value of How many tickets exist
+    #this method runs of first program startup
     def __init__(self, Num, Creator, ID, Email, Discription, Response, Status):
         global solve
         global resolved
         global reopened
         global tickets_created
+        
+        #self.Num to self.Status defines the attributes of the Ticket Class
         self.Num = Num
         self.Creator = Creator
         self.ID = ID
@@ -30,13 +43,21 @@ class Ticket():
         self.Discription = Discription
         self.Response = Response
         self.Status = Status
+        
+        #if the Status is open increment solve by 1
         if self.Status == "Open":
             solve += 1
+            
+        #else if the Status is Closed, increment resolved by 1
         elif self.Status == "Closed":
             resolved += 1
+            
+        #increment tickets_created by 1
         tickets_created += 1
-
+        
+        #add the Ticket ID to the used ID's list
         used_ids.append(self.Num)
+        
 #ticketprint() prints the information of the ticket picked in a clean and readble format
     def ticketprint(self):
         print("---------------")
@@ -47,7 +68,7 @@ class Ticket():
         print("Discription:", self.Discription)
         print("Response:", self.Response)
         print("Status:", self.Status)
-
+    #change_password() is a method that handles automatic password changing
     def change_password(self):
         global solve
         global resolved
