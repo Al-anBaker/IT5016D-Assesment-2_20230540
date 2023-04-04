@@ -140,6 +140,7 @@ def edit_ticket():
     global resolved
     global tickets_created
     print("---------------")
+	#sel_ticket asks the User for a ticket ID to edit
     sel_ticket = int(input("Which Ticket would you like to edit: "))
     if sel_ticket in used_ids:
         tid = sel_ticket - 2001
@@ -172,6 +173,9 @@ def edit_ticket():
                 print("No Changes have been made")
         Ticket.ticketprint(ticket_list[tid])
         main()
+	else:
+		print("No Ticket of that ID Exists")
+		edit_ticket()
        
     
 #main() the function at acts as the root of the program and it branches into other functions
