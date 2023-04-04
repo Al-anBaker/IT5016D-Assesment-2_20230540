@@ -1,20 +1,10 @@
 #By Alan Baker 2023 Mar 30
 
-
-#this sets if the user is an admin
-admin = False
-
-#userpassword is password the end-user inputted
-userpassword = ""
-
 #this is a list of used_ids
 used_ids = []
 
 #this is a list of tickets
 ticket_list = []
-
-#this is the default admin password
-adminpw = "admin"
 
 #0 is the default value of solve
 solve = 0
@@ -68,6 +58,7 @@ class Ticket():
         print("Description:", self.Description)
         print("Response:", self.Response)
         print("Status:", self.Status)
+        
     #change_password() is a method that handles automatic password changing
     def change_password(self):
         global solve
@@ -80,6 +71,7 @@ class Ticket():
         resolved += 1
         solve -= 1
         
+        
 #ticketstats() displays how many tickets are open or closed
 def ticketstats():
     global solve
@@ -89,14 +81,20 @@ def ticketstats():
     print("Tickets Resolved:", resolved)
     print("Tickets to Solve:", solve)
         
-
+        
+#ticket1 is an example ticket
 ticket1 = Ticket(2001, "Inna", "INNAM", "inna@whitecliffe.co.nz", "My monitor stopped working", "Not Yet Provided", "Open")
+#ticket_list.append adds the ticket to the ticket list
 ticket_list.append(ticket1)
 
+#ticket2 is an example ticket
 ticket2 = Ticket(2002, "Maria", "MARIAH", "maria@whitecliffe.co.nz", "Request for a videocamera to conduct webinars", "Not Yet Provided", "Open")
+#ticket_list.append adds the ticket to the ticket list
 ticket_list.append(ticket2)
 
+#ticket3 is an example ticket
 ticket3 = Ticket(2003, "John", "JOHNS", "john@whitecliffe.co.nz", "Password Change", "New password generated: JOJoh", "Closed")
+#ticket_list.append adds the ticket to the ticket list
 ticket_list.append(ticket3)
 
 
@@ -121,6 +119,7 @@ def make_ticket():
         pass
     main()
 
+    
 #view_tickets() allows the end-user to the data of a selected ticket 
 def view_tickets():
     global used_ids
@@ -132,6 +131,7 @@ def view_tickets():
         Ticket.ticketprint(ticket_list[tid])
     main()
 
+    
 #edit_tickets() allows an admin to modify the status or response to a ticket
 def edit_ticket():
     global used_ids
@@ -139,6 +139,7 @@ def edit_ticket():
     global solve
     global resolved
     global tickets_created
+    print("---------------")
     sel_ticket = int(input("Which Ticket would you like to edit: "))
     if sel_ticket in used_ids:
         tid = sel_ticket - 2001
@@ -156,7 +157,7 @@ def edit_ticket():
             userResponse = input("Please Enter a Response: ")
             ticket_list[tid].Response = userResponse
         elif edit_choice == "D":
-            confirmation = input("Are you Sure (Y/N)")
+            confirmation = input("Are you Sure (Y/N): ")
             if confirmation == "Y":
                 if ticket_list[tid].Status == "Closed":
                     resolved -= 1
@@ -171,41 +172,22 @@ def edit_ticket():
                 print("No Changes have been made")
         Ticket.ticketprint(ticket_list[tid])
         main()
-        
-#password_check() checks if the user inputted password is equal to adminpw
-def password_check():
-    global admin
-    global userpassword
-    global adminpw
-    if admin == False:
-        userpassword = input("Enter Admin Password: ")
-        if userpassword == adminpw:
-            admin = True
-            return(admin)
-        else:
-            pass
-    else:
-        pass
-
+       
+    
 #main() the function at acts as the root of the program and it branches into other functions
 def main():
-    global admin
-    password_check()
-    if admin == False:
-        print("Please Enter Admin Password")
-        main()
-    elif admin == True:
-        ticketstats()
-        print("---------------")
-        usertask = input("Would you Like to (M)ake a new ticket, (V)iew Tickets or (E)dit a Ticket: ")
-        if usertask == "V":
-            view_tickets()
-        elif usertask == "M":
-            make_ticket()
-        elif usertask == "E":
-            edit_ticket()
-        else:
-            main()
+	ticketstats()
+	print("---------------")
+	usertask = input("Would you Like to (M)ake a new ticket, (V)iew Tickets or (E)dit a Ticket: ")
+	if usertask == "V":
+		view_tickets()
+	elif usertask == "M":
+		make_ticket()
+	elif usertask == "E":
+		edit_ticket()
+	else:
+		main()
+            
             
 #main() here initalises the program
 main()
