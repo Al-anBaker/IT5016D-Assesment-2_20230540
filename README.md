@@ -7,7 +7,7 @@ Tickets ids are applied sequenily so the first user-made ticket will always be 2
 
 # Instructions:
 
-## How to Make a Ticket:
+### How to Make a Ticket:
 
 1. In the main menu Chose make a new Ticket by pressing "M"
 2. Input your name
@@ -16,7 +16,7 @@ Tickets ids are applied sequenily so the first user-made ticket will always be 2
 5. Input the Discription
 6. The Program then generates the output for the new ticket and saves it to memory
 
-## Automatic Password Change:
+### Automatic Password Change:
 
 1. In the main menu Chose make a new Ticket by pressing "M"
 2. Input your name
@@ -28,25 +28,25 @@ Tickets ids are applied sequenily so the first user-made ticket will always be 2
 8. Input your Tickets ID number (ex: 2004)
 9. The New Password is in the response
 
-## Edit a Ticket:
+### Edit a Ticket:
 1. In the main Menu Chose Edit a Ticket by inputting "E"
 2. Input the ID of the Ticket you want to edit (ex: 2004)
 3. Once in the Edit menu for that ticket there is 4 options to do
 
-### Reopen a Ticket:
+#### Reopen a Ticket:
 1. In the edit menu for a ticket input "O"
 2. The Tickets Status is Now "Open"
 
-### Close a Ticket:
+#### Close a Ticket:
 1. In the edit menu for a ticket input "C"
 2. The Tickets Status is now "Closed"
 
-### Add a Response:
+#### Add a Response:
 1. In the edit menu for a ticket input "R"
 2. Input the response to the ticket
 3. The Tickets Response is now updated with the new response
 
-### Delete a Ticket:
+#### Delete a Ticket:
 1. In the edit menu for a ticket input "D"
 2. A Confermation message should appear, if you want to delete the ticket input "Y"
 3. The Ticket is now Deleted
