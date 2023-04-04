@@ -58,7 +58,7 @@ class Ticket():
         #add the Ticket ID to the used ID's list
         used_ids.append(self.Num)
         
-#ticketprint() prints the information of the ticket picked in a clean and readble format
+    #ticketprint() prints the information of the ticket picked in a clean and readble format
     def ticketprint(self):
         print("---------------")
         print("Ticket Number:", self.Num)
@@ -206,5 +206,6 @@ def main():
             edit_ticket()
         else:
             main()
+            
 #main() here initalises the program
 main()
