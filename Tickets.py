@@ -1,4 +1,5 @@
-#By Alan Baker 2023 Mar 30
+#By Alan Baker 20230540 
+#2023 Apr 4th
 
 #this is a list of used_ids
 used_ids = []
@@ -173,9 +174,9 @@ def edit_ticket():
                 print("No Changes have been made")
         Ticket.ticketprint(ticket_list[tid])
         main()
-	else:
-		print("No Ticket of that ID Exists")
-		edit_ticket()
+    else:
+        print("No Ticket of that ID Exists")
+        edit_ticket()
        
     
 #main() the function at acts as the root of the program and it branches into other functions
