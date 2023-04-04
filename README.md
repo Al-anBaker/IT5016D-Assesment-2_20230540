@@ -4,32 +4,29 @@
 
 ## How to Make a Ticket:
 
-1. enter the Password to access the Main Menu (Default is "admin")
-2. Once in the main menu Chose make a new Ticket by pressing "M"
-3. Input your name
-4. Input the staff ID
-5. Input your Email
-6. Input the Discription
-7. The Program then generates the output for the new ticket and saves it to memory
+1. In the main menu Chose make a new Ticket by pressing "M"
+2. Input your name
+3. Input the staff ID
+4. Input your Email
+5. Input the Discription
+6. The Program then generates the output for the new ticket and saves it to memory
 
 ## Automatic Password Change:
 
-1. enter the Password to access the Main Menu (Default is "admin")
-2. Once in the main menu Chose make a new Ticket by pressing "M"
-3. Input your name
-4. Input the staff ID
-5. Input your Email
-6. In the Discription Input "Password Change"
-7. Once the Ticket has been generated, the Program notifes the user that the password has been changed
-8. In the Main Menu Press "V" to navigate to view Ticket
-9. Input your Tickets ID number (ex: 2004)
-10. The New Password is in the response
+1. In the main menu Chose make a new Ticket by pressing "M"
+2. Input your name
+3. Input the staff ID
+4. Input your Email
+5. In the Discription Input "Password Change"
+6. Once the Ticket has been generated, the Program notifes the user that the password has been changed
+7. In the Main Menu Press "V" to navigate to view Ticket
+8. Input your Tickets ID number (ex: 2004)
+9. The New Password is in the response
 
 ## Edit a Ticket:
-1. enter the Password to access the Main Menu (Default is "admin")
-2. In the main Menu Chose Edit a Ticket by inputting "E"
-3. Input the ID of the Ticket you want to edit (ex: 2004)
-4. Once in the Edit menu for that ticket there is 4 options to do
+1. In the main Menu Chose Edit a Ticket by inputting "E"
+2. Input the ID of the Ticket you want to edit (ex: 2004)
+3. Once in the Edit menu for that ticket there is 4 options to do
 
 ### Reopen a Ticket:
 1. In the edit menu for a ticket input "O"
