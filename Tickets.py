@@ -158,9 +158,9 @@ def edit_ticket():
         elif edit_choice == "D":
             confirmation = input("Are you Sure (Y/N)")
             if confirmation == "Y":
-                if ticket_list[tid].Status = "Closed":
+                if ticket_list[tid].Status == "Closed":
                     resolved -= 1
-                elif ticket_list[tid].Status = "Open":
+                elif ticket_list[tid].Status == "Open":
                     solve -= 1
                 ticket_list.pop(tid)
                 used_ids.pop(tid)
