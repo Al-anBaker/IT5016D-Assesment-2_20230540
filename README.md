@@ -1,5 +1,10 @@
 # IT5016D-Assesment-2_20230540
 
+
+Ticket IDs are formatted as 2001, 2002, ect
+Tickets ids are applied sequenily so the first user-made ticket will always be 2004
+
+
 # Instructions:
 
 ## How to Make a Ticket:
@@ -48,3 +53,5 @@
 
 # Running the Code
 The Code Should run as is, all you need is Python IDLE and then you can just run the program, it uses 0 exturnal fuctions
+
+
