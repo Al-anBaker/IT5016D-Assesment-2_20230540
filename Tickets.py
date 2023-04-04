@@ -105,7 +105,6 @@ def make_ticket():
     global used_ids
     global ticket_list
     userNum = used_ids[-1] + 1
-    used_ids.append(userNum)
     tid = userNum - 2001
     print("---------------")
     userCreator = input("Please input your name: ")
@@ -159,7 +158,12 @@ def edit_ticket():
         elif edit_choice == "D":
             confirmation = input("Are you Sure (Y/N)")
             if confirmation == "Y":
+                if ticket_list[tid].Status = "Closed":
+                    resolved -= 1
+                elif ticket_list[tid].Status = "Open":
+                    solve -= 1
                 ticket_list.pop(tid)
+                used_ids.pop(tid)
                 print("Ticket Deleted")
                 tickets_created -= 1
                 main()
