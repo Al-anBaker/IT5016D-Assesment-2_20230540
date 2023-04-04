@@ -29,7 +29,7 @@ tickets_created = 0
 class Ticket():
     
     #this method runs of first program startup
-    def __init__(self, Num, Creator, ID, Email, Discription, Response, Status):
+    def __init__(self, Num, Creator, ID, Email, Description, Response, Status):
         global solve
         global resolved
         global reopened
@@ -65,7 +65,7 @@ class Ticket():
         print("Ticket Creator:", self.Creator)
         print("Staff ID:", self.ID)
         print("Staff Email:", self.Email)
-        print("Discription:", self.Discription)
+        print("Description:", self.Description)
         print("Response:", self.Response)
         print("Status:", self.Status)
     #change_password() is a method that handles automatic password changing
@@ -111,7 +111,7 @@ def make_ticket():
     userCreator = input("Please input your name: ")
     userID = input("Please input your Staff ID: ")
     userEmail = input("Please input your Email: ")
-    userDiscription = input("Please add a discription: ")
+    userDescription = input("Please add a Description: ")
     ticket4 = Ticket(userNum, userCreator, userID, userEmail, userDescription, "Not Yet Provided", "Open")
     ticket_list.append(ticket4)
     Ticket.ticketprint(ticket_list[tid])
