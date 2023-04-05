@@ -66,11 +66,15 @@ class Ticket():
     def change_password(self):
         global solve
         global resolved
-	#changedpwp1 takes the first two d
+	#changedpwp1 takes the first two letters of the Staff Id
         changedpwp1 = self.ID[0:2]
+	#changedpwp2 takes the first three letters of the Ticket Creator name
         changedpwp2 = self.Creator[0:3]
+	#changedpw is a combination of changedpwp1 and changedpwp2 and makes the new auto generated password
         changedpw = changedpwp2.join(changedpwp1)
-        self.Response = "Password Updated to ", changedpw
+	#this changes the response to the new passwor
+        self.Response = "Password Updated to ", changedpw'
+	#this automaticly closes the ticket
         self.Status = "Closed"
         resolved += 1
         solve -= 1
@@ -81,6 +85,7 @@ def ticketstats():
     global solve
     global resolved
     print("---------------")
+	#print here run through the ticket stats
     print("Tickets Created:", tickets_created)
     print("Tickets Resolved:", resolved)
     print("Tickets to Solve:", solve)
@@ -106,21 +111,32 @@ ticket_list.append(ticket3)
 def make_ticket():
     global used_ids
     global ticket_list
+	#userNum is made of the last used id and added 1 to it to make the new id
     userNum = used_ids[-1] + 1
+	#tid is the indexed version so it can be called from a list
     tid = userNum - 2001
     print("---------------")
+	#input()s here asks the user for details for the new ticket
     userCreator = input("Please input your name: ")
     userID = input("Please input your Staff ID: ")
     userEmail = input("Please input your Email: ")
     userDescription = input("Please add a Description: ")
+	#ticket4 is a temporary ticket that contains al the user varibles and makes a new ticket instance
     ticket4 = Ticket(userNum, userCreator, userID, userEmail, userDescription, "Not Yet Provided", "Open")
+	#ticket_list.append(ticket4) adds the new ticket to the list system
     ticket_list.append(ticket4)
+	#Ticket.ticketprint prints the newly made ticket
     Ticket.ticketprint(ticket_list[tid])
+	#if the description contains "Password Change" then
     if "Password Change" in userDescription:
+		#Ticket.change_password is a method thats runs the auto change password 
         Ticket.change_password(ticket_list[tid])
+		#print here notifies the user that the Password has changed
         print("Password Changed New Password in Response")
     else:
+		#else then it just igones this if statment
         pass
+	#Goes back to the main menu
     main()
 
     
@@ -130,17 +146,33 @@ def view_tickets():
     global ticket_list
     x = 0
     print("---------------")
+	#sel_ticket askes the user what ticket they would like to see
     sel_ticket = input("Which Ticket would you like to view: ")
+	#if the user inputs "All" then
     if sel_ticket == "All":
+		#for every item in the used_ids list run
         for x in used_ids:
+			#tid = x - 2001 gets the index number of the used ids 
             tid = x - 2001
+			#prints the information from the tickets
             Ticket.ticketprint(ticket_list[tid])
-            
+	#else 
     else:
+		#sel_ticket = int(sel_ticket) makes the sel_ticket a number
         sel_ticket = int(sel_ticket)
+		#tid gets the list index varible
         tid = sel_ticket - 2001
+		#if the selected ticket exists in the used_ids list then
         if sel_ticket in used_ids:
+			#print the selected ticket
             Ticket.ticketprint(ticket_list[tid])
+		#else
+		else:
+			#notify the user that the ticket does not exist
+			print("Ticket Does not exist in the system")
+			#go back to main menu
+			main()
+	#go back to main menu
     main()
 
     
@@ -154,54 +186,98 @@ def edit_ticket():
     print("---------------")
 	#sel_ticket asks the User for a ticket ID to edit
     sel_ticket = int(input("Which Ticket would you like to edit: "))
+	#if the selected ticket exists in the used_ids list then
     if sel_ticket in used_ids:
+		#get the indexed number
         tid = sel_ticket - 2001
+		#prints the selected ticket
         Ticket.ticketprint(ticket_list[tid])
+		#asks the user how they would like to edit the ticket
         edit_choice = input("Would you like to Re(O)pen, (C)lose, (R)espond or (D)elete a ticket: ")
+		#if the edit_choice is Reopen then
         if edit_choice == "O":
+			#sets the selected tickets status to "Open"
             ticket_list[tid].Status = "Open"
+			#increments the solve value
             solve += 1
+			#decrements the resolved value
             resolved -= 1
+		#else if the edit_choice is Close then
         elif edit_choice == "C":
+			#sets the selected tickets status to "Closed"
             ticket_list[tid].Status = "Closed"
+			#increments the resolved value
             resolved += 1
+			#decrements the solve value
             solve -= 1
+		#elif the edit_choice is Respond then
         elif edit_choice == "R":
+			#ask the user for a new response
             userResponse = input("Please Enter a Response: ")
+			#set the selected ticket to the userResponse
             ticket_list[tid].Response = userResponse
+		#else if the edit_choice is Delete then
         elif edit_choice == "D":
+			#asks the user if they are sure they want to delete the ticket
             confirmation = input("Are you Sure (Y/N): ")
+			#if the user confirms that they want to delete the ticket then
             if confirmation == "Y":
+				#if that tickets status was "Closed" then
                 if ticket_list[tid].Status == "Closed":
+					#decrement the resolved value
                     resolved -= 1
+				#else if the tickets status was "Open" then
                 elif ticket_list[tid].Status == "Open":
+					#decrement the solve value
                     solve -= 1
+				#delete the ticket from the ticket list
                 ticket_list.pop(tid)
+				#delete the ticket id from used_ids as its now avalable
                 used_ids.pop(tid)
+				#notifies the user that the ticket is deleted
                 print("Ticket Deleted")
+				#decrements the tickets_created value
                 tickets_created -= 1
+				#go back to main menu
                 main()
+			#else if the user has not confirmed their deletion then
             elif confirmation == "N":
+				#notify the user that no changes have been made
                 print("No Changes have been made")
+		#print the newly edited ticket
         Ticket.ticketprint(ticket_list[tid])
+		#go back to main menu
         main()
+	#if the ticket does not exist in the used_ids then
     else:
+		#notify the user that the ticket does not exist
         print("No Ticket of that ID Exists")
+		#ask the user again
         edit_ticket()
        
     
 #main() the function at acts as the root of the program and it branches into other functions
 def main():
+	#ticketstats() displays how many tickets exist and how many are opened or closed
 	ticketstats()
 	print("---------------")
+	#ask the user if they would like to view tickets, make a new one or edit a ticket
 	usertask = input("Would you Like to (M)ake a new ticket, (V)iew Tickets or (E)dit a Ticket: ")
+	#if the user wants to view the tickets then
 	if usertask == "V":
+		#run the view_tickets() function
 		view_tickets()
+	#else if the user wants to make a new ticket then
 	elif usertask == "M":
+		#run the make_ticket() function
 		make_ticket()
+	#else if the user wants to edit an existing ticket then
 	elif usertask == "E":
+		#run the edit_ticket() function
 		edit_ticket()
+	#if the user did not input an option then 
 	else:
+		#reask the user
 		main()
             
             
