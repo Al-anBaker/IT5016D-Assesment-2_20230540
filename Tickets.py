@@ -1,5 +1,5 @@
 #By Alan Baker 20230540 
-#2023 Apr 4th
+#2023 Apr 6th
 
 #this is a list of used_ids
 used_ids = []
@@ -51,7 +51,9 @@ class Ticket():
         
     #ticketprint() prints the information of the ticket picked in a clean and readble format
     def ticketprint(self):
+	#print("---------------") is used as a seperator
         print("---------------")
+	#print statements here print the ticket information
         print("Ticket Number:", self.Num)
         print("Ticket Creator:", self.Creator)
         print("Staff ID:", self.ID)
@@ -64,6 +66,7 @@ class Ticket():
     def change_password(self):
         global solve
         global resolved
+	#changedpwp1 takes the first two d
         changedpwp1 = self.ID[0:2]
         changedpwp2 = self.Creator[0:3]
         changedpw = changedpwp2.join(changedpwp1)
