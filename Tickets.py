@@ -121,15 +121,23 @@ def make_ticket():
     main()
 
     
-#view_tickets() allows the end-user to the data of a selected ticket 
+#view_tickets() allows the end-user to the data of a selected ticket or if "All" is inputed will display Every Saved Ticket
 def view_tickets():
     global used_ids
     global ticket_list
+    x = 0
     print("---------------")
-    sel_ticket = int(input("Which Ticket would you like to view: "))
-    tid = sel_ticket - 2001
-    if sel_ticket in used_ids:
-        Ticket.ticketprint(ticket_list[tid])
+    sel_ticket = input("Which Ticket would you like to view: ")
+    if sel_ticket == "All":
+        for x in used_ids:
+            tid = x - 2001
+            Ticket.ticketprint(ticket_list[tid])
+            
+    else:
+        sel_ticket = int(sel_ticket)
+        tid = sel_ticket - 2001
+        if sel_ticket in used_ids:
+            Ticket.ticketprint(ticket_list[tid])
     main()
 
     
