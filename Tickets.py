@@ -147,9 +147,9 @@ def view_tickets():
     x = 0
     print("---------------")
 	#sel_ticket askes the user what ticket they would like to see
-    sel_ticket = input("Which Ticket would you like to view: ")
-	#if the user inputs "All" then
-    if sel_ticket == "All":
+    sel_ticket = input("Which Ticket would you like to see or see (A)ll: ")
+	#if the user inputs "A" then
+    if sel_ticket == "A":
 		#for every item in the used_ids list run
         for x in used_ids:
 			#tid = x - 2001 gets the index number of the used ids 
