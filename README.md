@@ -35,7 +35,7 @@ Tickets ids are applied sequentially so the first user-made ticket will always b
 
 ### Display All Tickets
 1. In the Main Menu Chose View Tickets by inputting "V"
-2. Display All Ticket Details by inputting "All"
+2. Display All Ticket Details by inputting "A"
 3. All of the currently stored tickets are now displayed
 
 ### Edit a Ticket:
